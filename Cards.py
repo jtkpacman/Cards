@@ -16,15 +16,24 @@ suit = ['H', 'D', 'S', 'C']
 rank = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'J', 'Q', 'K', 'A']
 
 
+# The hand class defines the users hand.
+class Hand:
+    def __init__(self, cards, handSize):
+        self.cards = cards
+        self.handSize = handSize
+
+
 # creates the deck and returns a list of cards.
 def createDeck():
     deck = []
+    deckSize = 0
 
     for i in range(len(suit)):
         for x in range(len(rank)):
             deck.append(Card(suit[i], rank[x]))
+            deckSize += 1
 
-    print("Created a deck.")
+    print("Created a deck of " + str(deckSize) + " cards.")
     return deck
 
 
@@ -42,7 +51,9 @@ def showDeck(deck):
 
 
 # Start the game operations.
+# Assign the deck to a variable.
 userDeck = createDeck()
-showDeck(userDeck)
+
+# showDeck(userDeck)
 shuffleDeck(userDeck)
-showDeck(userDeck)
+# showDeck(userDeck)
